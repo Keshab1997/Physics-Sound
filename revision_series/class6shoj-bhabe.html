@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শব্দ (Sound) - সহজ পাঠ ০৬</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- বেসিক স্টাইল --- */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- মূল কন্টেইনার --- */
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            padding: 25px 35px;
+            border-top: 5px solid #007bff;
+        }
+
+        /* --- প্রোগ্রেস বার --- */
+        .progress-container {
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            height: 10px;
+            width: 100%;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: #28a745;
+            height: 100%;
+            width: 85.7%; /* ৭টি ক্লাসের মধ্যে ৬ষ্ঠ ক্লাস (6/7) */
+            border-radius: 25px;
+            transition: width 0.4s ease;
+        }
+
+        /* --- কন্টেন্ট স্টাইল --- */
+        .content h1 {
+            color: #0056b3;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .content .sub-heading {
+            text-align: center;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .content h4 {
+            color: #007bff;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+
+        .content p, .content li {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .content strong {
+            color: #d9534f;
+        }
+
+        .content ul {
+            list-style-type: '✔ ';
+            padding-left: 20px;
+        }
+        
+        /* For ordered lists in content */
+        .content ol {
+            list-style-type: decimal;
+            padding-left: 25px;
+        }
+        .content ol li {
+            margin-bottom: 8px;
+        }
+
+        .content hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        
+        .thank-you {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 30px;
+        }
+
+        /* --- টেবিল স্টাইল --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 1em;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+
+        /* --- বাটন সেকশন (ছোট সাইজ) --- */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .nav-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .page-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .page-btn.active {
+            background-color: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .page-btn:not(.active):hover {
+            background-color: #e2e6ea;
+            border-color: #c7ced3;
+        }
+        
+        .btn.disabled {
+            background-color: #cdd2d6;
+            color: #888;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* --- হোম বাটন --- */
+        .home-button-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .home-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 25px;
+        }
+        .home-btn:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- প্রোগ্রেস বার -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="content">
+            <h1>বিষয়: শব্দ (Sound)</h1>
+            <p class="sub-heading">সহজ পাঠ: ০৬</p>
+
+            <h4>১. শব্দের তিনটি চরিত্র (Three Characters of Sound)</h4>
+            <p>ভাবো, শব্দেরও মানুষের মতো নিজস্ব চরিত্র আছে। এই তিনটি চরিত্র দিয়েই আমরা এক শব্দকে অন্য শব্দ থেকে আলাদা করি।</p>
+
+            <p><strong>ক) প্রাবল্য বা তীব্রতা (Intensity/Loudness):</strong></p>
+            <ul>
+                <li><strong>মানে কী?</strong> একটা শব্দ কতটা <strong>জোরে (Loud)</strong> বা <strong>আস্তে (Faint)</strong> শোনাচ্ছে। সিংহ গর্জন করলে তার প্রাবল্য অনেক বেশি, আর ফিসফিস করে কথা বললে প্রাবল্য অনেক কম।</li>
+                <li><strong>কিসের উপর নির্ভর করে?</strong> শব্দের ঢেউ কতটা <strong>বড়</strong> তার উপর। ঢেউ বড় হলে শব্দ জোরে হয়।</li>
+            </ul>
+
+            <p><strong>খ) তীক্ষ্ণতা (Pitch):</strong></p>
+            <ul>
+                <li><strong>মানে কী?</strong> একটা শব্দ কতটা <strong>মোটা (Grave)</strong> আর কতটা <strong>চিকন (Shrill)</strong>। যেমন, মশার প্যানপ্যানানি খুব চিকন, আর গরুর ডাক বেশ মোটা।</li>
+                <li><strong>কিসের উপর নির্ভর করে?</strong> <strong>কম্পাঙ্ক (Frequency)</strong>-এর উপর। কম্পাঙ্ক যত বেশি, শব্দ তত চিকন হয়।</li>
+            </ul>
+
+            <p><strong>গ) গুণ বা জাতি (Quality/Timbre):</strong></p>
+            <ul>
+                <li><strong>মানে কী?</strong> এটাই শব্দের আসল <strong>পরিচয় বা Signature</strong>। ধরো, একই সুরে আর একই জোরে একজন গিটার বাজাচ্ছে আর একজন বাঁশি বাজাচ্ছে। তুমি কিন্তু চোখ বন্ধ করেও বলে দিতে পারবে কোনটা গিটার আর কোনটা বাঁশি। শব্দের যে গুণের জন্য এটা পারা যায়, সেটাই তার জাতি বা গুণ।</li>
+                <li><strong>কিসের উপর নির্ভর করে?</strong> শব্দের ঢেউয়ের <strong>আকৃতি (Shape)</strong>-এর উপর। প্রত্যেকটা বাদ্যযন্ত্রের শব্দের ঢেউয়ের আকৃতি আলাদা হয়।</li>
+            </ul>
+
+            <h4>২. আমাদের কান: এক অসাধারণ যন্ত্র (The Human Ear)</h4>
+            <p>আমাদের কান কীভাবে শব্দ শোনে, সেটা একটা দারুণ গল্পের মতো!</p>
+            <ol>
+                <li><strong>প্রথম ধাপ (বাইরের কান):</strong> কানের বাইরের অংশটা (Pinna) একটা ফানেলের মতো কাজ করে। এটা চারপাশ থেকে শব্দ ধরে একটা সরু রাস্তা (Auditory Canal) দিয়ে ভেতরে পাঠায়।</li>
+                <li><strong>দ্বিতীয় ধাপ (মাঝখানের কান):</strong> রাস্তার শেষে একটা পর্দার মতো জিনিস থাকে (Eardrum)। শব্দ এসে ধাক্কা মারলে পর্দাটা কাঁপতে শুরু করে। এই কাঁপুনিটাকে আরও বাড়িয়ে দেওয়ার জন্য এর সাথে তিনটি ছোট্ট হাড় (Malleus, Incus, Stapes) লাগানো থাকে। এরা লিভারের মতো কাজ করে কাঁপুনিকে কয়েক গুণ বাড়িয়ে দেয়।</li>
+                <li><strong>তৃতীয় ধাপ (ভেতরের কান):</strong> এই শক্তিশালী কাঁপুনিটা এবার ককলিয়া (Cochlea) নামে একটা শামুকের মতো দেখতে অংশে পৌঁছায়। ককলিয়ার ভেতরে থাকা তরল আর স্নায়ু এই কাঁপুনিকে <strong>ইলেকট্রিক সিগন্যালে</strong> পরিণত করে।</li>
+                <li><strong>শেষ ধাপ (মস্তিষ্ক):</strong> এই ইলেকট্রিক সিগন্যাল একটা তারের (Auditory Nerve) মাধ্যমে আমাদের মস্তিষ্কে যায়, আর তখনই আমরা বুঝতে পারি যে আমরা একটা শব্দ শুনলাম!</li>
+            </ol>
+
+            <h4>৩. শব্দ দূষণ: এক নীরব ঘাতক 😠</h4>
+            <ul>
+                <li><strong>শব্দ দূষণ কী?</strong> যখন কোনো অপ্রয়োজনীয়, বিরক্তিকর আর জোরালো আওয়াজ আমাদের কষ্ট দেয়, সেটাই শব্দ দূষণ।</li>
+                <li><strong>কেন হয়?</strong> গাড়ির হর্ন, মাইকের বিকট আওয়াজ, কারখানার শব্দ, বাজি ফাটানো ইত্যাদি।</li>
+                <li><strong>এর ফল কী?</strong> মাথাব্যথা, ঘুম না হওয়া থেকে শুরু করে মেজাজ খিটখিটে হওয়া, এমনকি আস্তে আস্তে কানের শোনার ক্ষমতা কমে যাওয়া ও হার্টের সমস্যাও হতে পারে।</li>
+            </ul>
+
+            <h4>৪. কিছু মজার "কেন" আর তার সহজ উত্তর</h4>
+            <p><strong>প্রশ্ন: পুরুষদের গলা মোটা আর মহিলা বা শিশুদের গলা চিকন হয় কেন?</strong></p>
+            <ul>
+                <li><strong>উত্তর:</strong> কারণ, পুরুষদের গলার স্বরযন্ত্রের কম্পাঙ্ক কম (ধীরে কাঁপে), তাই স্বর মোটা হয়। মহিলা ও শিশুদের স্বরযন্ত্রের কম্পাঙ্ক বেশি (দ্রুত কাঁপে), তাই স্বর চিকন হয়।</li>
+            </ul>
+
+            <p><strong>প্রশ্ন: বর্ষাকালে দূরের শব্দ কেন কম শোনা যায়?</strong></p>
+            <ul>
+                <li><strong>উত্তর:</strong> কারণ, বর্ষাকালে বাতাসে জলীয় বাষ্প বেশি থাকে। এই ভেজা বাতাসটা একটা স্পঞ্জের মতো কাজ করে শব্দের শক্তি শুষে নেয়। তাই শব্দ বেশি দূর যেতে পারে না।</li>
+            </ul>
+
+            <p><strong>প্রশ্ন: বাজ পড়ার সময় আগে আলো দেখা যায়, পরে শব্দ শোনা যায় কেন?</strong></p>
+            <ul>
+                <li><strong>উত্তর:</strong> এটা একটা দৌড় প্রতিযোগিতার মতো! আলোর গতি (বেগ) 엄청 (বিশাল) বেশি, প্রায় ৩ লক্ষ কিমি/সেকেন্ড। আর শব্দের গতি অনেক কম, মাত্র ৩৪০ মিটার/সেকেন্ড। তাই আলো চোখের পলকে আমাদের কাছে চলে আসে, কিন্তু শব্দের আসতে কিছুটা সময় লেগে যায়।</li>
+            </ul>
+
+            <p><strong>প্রশ্ন: চাঁদে বা সূর্যে বিশাল বিস্ফোরণ হলেও আমরা তার শব্দ শুনতে পাই না কেন?</strong></p>
+            <ul>
+                <li><strong>উত্তর:</strong> কারণ, শব্দ চলার জন্য একটা <strong>রাস্তা (মাধ্যম)</strong> লাগে, যেমন বাতাস। পৃথিবী আর চাঁদের মাঝে কোনো বাতাস নেই, পুরোটাই <strong>শূন্যস্থান</strong>। রাস্তা না থাকলে গাড়ি যেমন চলতে পারে না, মাধ্যম না থাকায় শব্দও আমাদের কাছে আসতে পারে না।</li>
+            </ul>
+
+            <hr>
+            
+            <p class="thank-you">THANK YOU</p>
+        </div>
+
+        <!-- নেভিগেশন বাটন -->
+       <div class="navigation">
+    <a href="class5shoj-bhabe.html" class="btn nav-btn">⟵ পূর্ববর্তী</a>
+
+    <a href="class1shoj-bhabe.html" class="btn page-btn">১</a>
+    <a href="class2shoj-bhabe.html" class="btn page-btn">২</a>
+    <a href="class3shoj-bhabe.html" class="btn page-btn ">৩</a>
+    <a href="class4shoj-bhabe.html" class="btn page-btn ">৪</a>
+    <a href="class5shoj-bhabe.html" class="btn page-btn ">৫</a>
+    <a href="class6shoj-bhabe.html" class="btn page-btn active">৬</a>
+    <a href="class7shoj-bhabe.html" class="btn page-btn">৭</a>
+
+    <a href="class7shoj-bhabe.html" class="btn nav-btn">পরবর্তী ⟶</a>
+</div>
+
+<!-- হোম বাটন -->
+<div class="home-button-container">
+    <a href="../index.html" class="btn home-btn">🏠 হোম পেজ</a>
+</div>
+
+    </div>
+
+</body>
+</html>

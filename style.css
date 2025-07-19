@@ -1,0 +1,380 @@
+/* style.css (Complete and Unified Version) */
+
+/* --- 1. Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+/* --- 2. Global & Body Styles --- */
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+  margin: 0;
+  padding: 20px;
+}
+body.homepage {
+    position: relative;
+    overflow-x: hidden;
+}
+body.homepage::before, body.homepage::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+}
+body.homepage::before {
+    width: 400px;
+    height: 400px;
+    background: #a5b4fc;
+    top: -100px;
+    left: -150px;
+}
+body.homepage::after {
+    width: 500px;
+    height: 500px;
+    background: #f9a8d4;
+    bottom: -150px;
+    right: -200px;
+}
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  padding: 20px 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid transparent;
+}
+h1, h2, h3, p {
+  transition: color 0.4s ease;
+}
+
+/* --- 3. Day & Dark Mode --- */
+body.day-mode { background: #f0f4f8; color: #334155; }
+body.day-mode main { background: #ffffff; border-color: #e2e8f0; }
+body.day-mode h1, body.day-mode h2, body.day-mode h3 { color: #1e293b; }
+body.day-mode .option-btn { background-color: #f8fafc; border-color: #e2e8f0; color: #334155; }
+body.day-mode .option-btn:hover:not(:disabled) { border-color: #3b82f6; }
+body.day-mode .main-header p { color: #64748b; }
+
+body.dark-mode { background: #111827; color: #d1d5db; }
+body.dark-mode main { background: #1f2937; border-color: #374151; }
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 { color: #f9fafb; }
+body.dark-mode .option-btn { background-color: #374151; border-color: #4b5563; color: #f3f4f6; }
+body.dark-mode .option-btn:hover:not(:disabled) { border-color: #60a5fa; }
+body.dark-mode.homepage::before { background: #4f46e5; opacity: 0.3; }
+body.dark-mode.homepage::after { background: #be185d; opacity: 0.3; }
+body.dark-mode .main-header p { color: #9ca3af; }
+
+
+/* --- 4. Home Page Styles --- */
+.main-header { text-align: center; padding: 20px 0; margin-bottom: 20px; }
+.main-header h1 { font-size: 2.8rem; font-weight: 700; margin: 0; }
+.main-header p { font-size: 1.1rem; }
+.nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 900px; margin: 20px auto; padding: 0 20px; }
+.nav-button { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 15px; border-radius: 20px; text-decoration: none; color: white; text-align: center; box-shadow: 0 8px 25px -5px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.nav-button:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 12px 30px -5px rgba(0,0,0,0.2); }
+.nav-button i { font-size: 2.5rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.nav-button span { font-size: 1.1rem; font-weight: 600; }
+.color-notes { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+.color-quiz { background: linear-gradient(135deg, #16a34a, #4ade80); }
+.color-revision { background: linear-gradient(135deg, #f59e0b, #facc15); }
+.color-games { background: linear-gradient(135deg, #c026d3, #f472b6); }
+.card { padding: 25px; border-radius: 16px; margin-bottom: 30px; }
+.card h2 { font-size: 1.75rem; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; display: flex; align-items: center;}
+.icon-title { margin-right: 15px; color: #3b82f6; }
+body.dark-mode .card h2 { border-bottom-color: #374151; }
+body.dark-mode .icon-title { color: #60a5fa; }
+footer { text-align: center; padding: 1rem; color: #64748b; }
+body.dark-mode footer { color: #9ca3af; }
+
+/* --- 5. Link Container (Pill Style) --- */
+.link-container { display: flex; flex-wrap: wrap; gap: 15px; counter-reset: link-counter; }
+.link-container a { position: relative; flex-grow: 0; padding: 10px 20px 10px 50px; border-radius: 50px; display: inline-flex; align-items: center; font-weight: 600; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-decoration: none; transition: all 0.2s ease; }
+.link-container a:hover { transform: translateY(-3px) scale(1.02); }
+.link-container a::before { counter-increment: link-counter; content: counter(link-counter); position: absolute; left: 0; top: 0; height: 100%; width: 38px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+/* Day Mode Pill */
+body.day-mode .link-container a { background-color: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
+body.day-mode .link-container a:hover { background-color: #e0e7ff; box-shadow: 0 4px 12px rgba(67, 56, 202, 0.15); }
+body.day-mode .link-container a::before { background-color: #dbeafe; color: #1e40af; }
+/* Dark Mode Pill */
+body.dark-mode .link-container a { background-color: #312e81; color: #e0e7ff; border: 1px solid #4f46e5; }
+body.dark-mode .link-container a:hover { background-color: #4338ca; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
+body.dark-mode .link-container a::before { background-color: #4338ca; color: #c7d2fe; }
+
+
+/* --- 6. Quiz Component Styles --- */
+.quiz-page-container { padding: 20px; }
+.quiz-header { text-align: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+.score-board { display: flex; justify-content: center; gap: 20px; font-size: 1.2rem; font-weight: bold; margin-top: 10px; }
+#correct-count { color: #28a745; }
+#wrong-count { color: #dc3545; }
+#timer { color: #6c757d; }
+.option-btn { display: flex; align-items: center; width: 100%; padding: 15px; border-radius: 16px; border: 2px solid; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); transition: all 0.2s ease-in-out; font-weight: 500; font-size: 16px; cursor: pointer; text-align: left; }
+.option-btn .option-prefix { font-weight: 700; margin-right: 12px; }
+body.day-mode .option-btn .option-prefix { color: #3b82f6; }
+body.dark-mode .option-btn .option-prefix { color: #60a5fa; }
+.option-btn.correct { background: #10b981 !important; color: white !important; border-color: #059669 !important; animation: pulse 0.6s ease; }
+.option-btn.incorrect { background: #ef4444 !important; color: white !important; border-color: #b91c1c !important; animation: shake 0.5s ease; }
+.action-btn { padding: 12px 24px; font-weight: 600; border-radius: 12px; border: none; color: white; cursor: pointer; background: linear-gradient(135deg, #2563eb, #3b82f6); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2); transition: all 0.2s ease; text-decoration: none; }
+.action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3); }
+.action-btn.green { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2); }
+.action-btn.gray { background: linear-gradient(135deg, #64748b, #94a3b8); }
+.review-card { border-radius: 16px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); padding: 20px; margin-bottom: 20px; border-left: 6px solid; }
+.review-card.correct { border-color: #22c55e; }
+.review-card.incorrect { border-color: #ef4444; }
+.back-to-home { display: block; text-align: center; margin-top: 20px; color: #007BFF; text-decoration: none; font-weight: bold; }
+
+
+/* --- 7. Page Navigation Styles --- */
+#page-navigation { margin: 40px 0 20px 0; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+body.dark-mode #page-navigation { border-top-color: #374151; }
+.nav-controls { display: flex; justify-content: space-between; align-items: center; }
+.nav-arrow { font-weight: 600; padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: background-color 0.2s ease; }
+.nav-arrow.prev { background-color: #f1f5f9; color: #475569; }
+.nav-arrow.next { background-color: #3b82f6; color: white; }
+body.dark-mode .nav-arrow.prev { background-color: #374151; color: #cbd5e1; }
+body.dark-mode .nav-arrow.next { background-color: #60a5fa; color: #1f2937; }
+.nav-arrow.disabled { opacity: 0.5; cursor: not-allowed; }
+.page-numbers { display: flex; gap: 8px; }
+.page-num { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; text-decoration: none; font-weight: 600; color: #64748b; background-color: #f1f5f9; transition: all 0.2s ease; }
+.page-num.active { background-color: #3b82f6; color: white; transform: scale(1.1); }
+body.dark-mode .page-num { color: #d1d5db; background-color: #374151; }
+body.dark-mode .page-num.active { background-color: #60a5fa; color: #1f2937; }
+
+
+/* --- 8. Animations & Media Queries --- */
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25%, 75% { transform: translateX(-4px); } 50% { transform: translateX(4px); } }
+@media (max-width: 600px) {
+    .main-header h1 { font-size: 2.2rem; }
+    .nav-grid { grid-template-columns: repeat(2, 1fr); }
+    .page-numbers { display: none; }
+}
+/* --- 12. Dropdown Menu for Flash Card Sets on Homepage --- */
+
+/* ড্রপডাউনের মূল কন্টেইনার */
+.game-dropdown {
+    position: relative; /* ভেতরের মেনুকে পজিশন করার জন্য */
+    display: block;
+    width: 100%;
+}
+
+/* যে বাটনটি ক্লিক করলে ড্রপডাউন দেখাবে */
+.dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px -5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px -5px rgba(0,0,0,0.2);
+}
+
+/* ড্রপডাউন মেনুর কন্টেইনার */
+.dropdown-menu {
+    display: none; /* ডিফল্টভাবে লুকানো থাকবে */
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 10; /* অন্য সবকিছুর উপরে দেখানোর জন্য */
+    border-radius: 12px;
+    margin-top: 8px; /* বাটন থেকে একটু নিচে দেখানোর জন্য */
+    max-height: 250px; /* মেনু বেশি লম্বা হলে স্ক্রলবার আসবে */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+/* ড্রপডাউনের ভেতরের লিঙ্কগুলো */
+.dropdown-menu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none; /* শেষের আইটেমের নিচে বর্ডার থাকবে না */
+}
+
+/* হোভার করলে মেনুটি দেখানোর জন্য */
+.game-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* হোভার করলে লিঙ্কের রঙ পরিবর্তন */
+.dropdown-menu a:hover {
+    background-color: #f1f5f9;
+}
+
+
+/* --- Dark Mode এর জন্য ড্রপডাউনের ডিজাইন --- */
+body.dark-mode .dropdown-menu {
+    background-color: #2d3748; /* গাঢ় ব্যাকগ্রাউন্ড */
+    border-color: #4a5568;
+}
+
+body.dark-mode .dropdown-menu a {
+    color: #e2e8f0; /* হালকা লেখা */
+    border-bottom-color: #4a5568;
+}
+
+body.dark-mode .dropdown-menu a:hover {
+    background-color: #4a5568;
+}
+/* --- 13. Revision Page Styles --- */
+.revision-page-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.revision-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.revision-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.revision-header p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+body.dark-mode .revision-header p {
+    color: #9ca3af;
+}
+
+.revision-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.revision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+body.dark-mode .revision-card {
+    background-color: #1f2937;
+    border-color: #374151;
+}
+
+.revision-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.revision-card h3 i {
+    color: #3b82f6;
+}
+body.dark-mode .revision-card h3 i {
+    color: #60a5fa;
+}
+
+.answer-box {
+    background-color: #eef2ff;
+    border-left: 5px solid #4f46e5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.answer-box p, .answer-box ul {
+    margin: 0;
+    font-size: 1.1rem;
+}
+.answer-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+body.dark-mode .answer-box {
+    background-color: #312e81;
+    border-left-color: #a5b4fc;
+}
+
+.explanation-box {
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+}
+body.dark-mode .explanation-box {
+    color: #cbd5e1;
+}
+
+.explanation-box p i, .answer-box p i {
+    margin-right: 8px;
+}
+/* Page Navigation Styles */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* বাটনগুলোর মধ্যে ফাঁকা জায়গা */
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.page-navigation .btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.page-navigation .btn-primary {
+    background-color: #007bff; /* হোম বাটনের রঙ */
+}
+
+.page-navigation .btn-secondary {
+    background-color: #6c757d; /* পরবর্তী/পূর্ববর্তী বাটনের রঙ */
+}
+
+.page-navigation .btn:hover {
+    transform: translateY(-2px); /* হোভার করলে বাটন উপরে উঠবে */
+}
+
+.page-navigation .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.page-navigation .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* নিষ্ক্রিয় বাটনের জন্য স্টাইল */
+.page-navigation .btn.disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+    pointer-events: none; /* ক্লিক করা যাবে না */
+}
+<style>
+.button-bar button:disabled {
+    background: #cfd8dc !important;
+    color: #888 !important;
+    cursor: not-allowed !important;
+    border: 1.2px solid #b3c6e0 !important;
+}
+</style>
